@@ -9,7 +9,7 @@ node {
             sh 'ls'
         }
     withEnv(["COMMIT=${env.GIT_COMMIT}","BRANCH=${env.GIT_BRANCH}"]) {    
-        load 'devops/jenkinsfiles/archetypes/springboot/load.Jenkinsfile'  
+        load '/jenkinsfiles/archetypes/springboot/load.Jenkinsfile'  
     }
     }
 }
