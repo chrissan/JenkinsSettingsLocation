@@ -6,6 +6,7 @@ node {
     {
         script{
             git branch: 'main', credentialsId: 'ssh01', url: 'git@github.com:BanCoppelUnity/pipeline-config.git'
+            ls
         }
     withEnv(["COMMIT=${env.GIT_COMMIT}","BRANCH=${env.GIT_BRANCH}"]) {    
         load 'devops/jenkinsfiles/archetypes/springboot/load.Jenkinsfile'  
