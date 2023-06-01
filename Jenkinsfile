@@ -1,7 +1,4 @@
 node {
-    tools {
-        maven 'MavenTool'
-    }
     script{
             git branch: 'main', credentialsId: 'ssh01', url: 'git@github.com:BanCoppelUnity/pipeline-config.git'
             sh 'pwd'
