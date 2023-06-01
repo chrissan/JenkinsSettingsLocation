@@ -7,7 +7,7 @@ node {
         script{
             git branch: 'main', credentialsId: 'ssh01', url: 'git@github.com:BanCoppelUnity/springboot-test.git'
         }
-    withEnv(["COMMIT=${scmVars.GIT_COMMIT}","BRANCH=${scmVars.GIT_BRANCH}"]) {    
+    withEnv(["COMMIT=${env.GIT_COMMIT}","BRANCH=${env.GIT_BRANCH}"]) {    
         load 'devops/project_A/full-pipeline.Jenkinsfile'  
     }
     }
