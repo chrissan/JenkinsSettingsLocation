@@ -5,12 +5,6 @@ def call(){
         maven 'MavenTool'
     }
     stages {
-
-        stage("Git Clone App") {
-            steps {
-                git branch: 'main', credentialsId: 'ssh01', url: 'git@github.com:BanCoppelUnity/springboot-test.git'
-            }
-        }
         
         stage('SonarQube Analysis') {
             steps {
