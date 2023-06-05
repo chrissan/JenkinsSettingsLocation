@@ -9,7 +9,7 @@ def call(){
         stage('SonarQube Analysis') {
             steps {
                 sh 'ls -la'
-                withSonarQubeEnv('SonarQubeServer') {
+                withSonarQubeEnv('SonarServer') {
                     sh 'mvn clean verify sonar:sonar'
                 }
             }
