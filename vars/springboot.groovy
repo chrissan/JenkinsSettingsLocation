@@ -36,7 +36,7 @@ def call(){
     //     }
         stage('Download Dockerfile'){
             steps{
-                printenv
+                sh 'printenv'
                 git branch: 'main', credentialsId: 'chris', url: 'git@github.com:BanCoppelUnity/pipeline-config.git'
                 sh 'cp dockerfiles/archetypes/springboot/Dockerfile ../'
                 sh 'cd ../'
@@ -50,7 +50,7 @@ def call(){
                 tag = sh(returnStdout: true, script: "echo $pom | awk -F':' '{print \$2 \":\" $env.BUILD_NUMBER}'")
             }
             steps {
-                sh 'printenv'
+
                 sh 'docker build -t $tag .'
             }
         }
