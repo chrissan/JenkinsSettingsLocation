@@ -8,6 +8,7 @@ def call(){
         
         stage('SonarQube Analysis') {
             steps {
+                
                 sh 'ls -la'
                 withSonarQubeEnv('SonarServer') {
                     sh 'mvn clean verify sonar:sonar'
@@ -35,10 +36,11 @@ def call(){
     //     }
         stage('Download Dockerfile'){
             steps{
+                printenv
                 git branch: 'main', credentialsId: 'chris', url: 'git@github.com:BanCoppelUnity/pipeline-config.git'
-                sh 'find .'
-                sh 'cp dockerfiles/archetypes/springboot/Dockerfile .'
-                sh 'rm -rf dockerfiles'
+                sh 'cp dockerfiles/archetypes/springboot/Dockerfile ../'
+                sh 'cd ../'
+                sh 'rm -rf pipeline-config'
                 sh 'ls -la'
             }
         }
