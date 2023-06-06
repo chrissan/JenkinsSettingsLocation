@@ -1,10 +1,4 @@
 def call(){
-    pipeline{
-    agent any
-    environment {
-        pom = readMavenPom file: 'pom.xml'
-        tag = sh(returnStdout: true, script: "echo $pom | awk -F':' '{print \$2 \":\" $env.BUILD_NUMBER}'")
-    }
     stages{
         stage('Download Dockerfile'){
             steps{
