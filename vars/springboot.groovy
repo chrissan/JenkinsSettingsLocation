@@ -12,15 +12,10 @@ def call(){
                 dir ('temp') {
                     checkout changelog: false, poll: false, scm: scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: "${GIT_PIPE_CONFIG_CREDENTIAL_NAME}", url: "${GIT_PIPE_CONFIG_URL}"]])
                 }
-                sh 'mv -f temp/$DOCKERFILE_SPRINGBOOT_PATH ./Dockerfile'
-                sh 'cat ./Dockerfile'
-                sh 'mv -f temp/scripts/branching-strategy-validation.sh ./branching-strategy-validation.sh'
-                sh 'cat ./branching-strategy-validation.sh'
-                sh 'mv -f temp/scripts/report-sonarqube.sh ./report-sonarqube.sh'
-                sh 'cat ./report-sonarqube.sh'
-                sh 'mv -f temp/dependencies/sonar-cnes-report-4.1.1.jar ./sonar-cnes-report-4.1.1.jar'
+                sh 'mv -f temp/$DOCKERFILE_SPRINGBOOT_PATH .'
+                sh 'cat Dockerfile'
                 sh 'ls -la'
-                sh 'rm temp'
+                sh 'rm -rf temp'
             }
         }
 
