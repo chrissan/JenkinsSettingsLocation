@@ -72,11 +72,11 @@ def call(){
                 tag = sh(returnStdout: true, script: "echo $pom | awk -F':' '{print \$2 \":\" $env.BUILD_NUMBER}'")
             }
             steps{
-                sh 'docker login -u admin -p $password $harborURL'
-                sh 'docker tag $tag tempservices.eastus.cloudapp.azure.com/archetype/$tag'
-                sh 'docker push tempservices.eastus.cloudapp.azure.com/archetype/$tag'
+                sh 'docker login -u admin -p $password $HARBOR_SERVER_URL'
+                sh 'docker tag $tag $HARBOR_SERVER_URL/archetype/$tag'
+                sh 'docker push $HARBOR_SERVER_URL/archetype/$tag'
                 sh 'docker rmi $tag'
-                sh 'docker rmi tempservices.eastus.cloudapp.azure.com/archetype/$tag'
+                sh 'docker rmi $HARBOR_SERVER_URL/archetype/$tag'
             }
         }
 
