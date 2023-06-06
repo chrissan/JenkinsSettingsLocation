@@ -39,6 +39,7 @@ def call(){
                 sh 'find .'
                 sh 'cp dockerfiles/archetypes/springboot/Dockerfile .'
                 sh 'rm -rf dockerfiles'
+                sh 'ls -la'
             }
         }
         stage('Dockerize') {
