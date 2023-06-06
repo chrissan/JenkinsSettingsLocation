@@ -35,10 +35,12 @@ def call(){
     //         }
     //     }
         stage('Download Dockerfile'){
+            environment{
+                git_cred = credentials('githubpassglobal')
+            }
             steps{
                 sh 'pwd'
-                git branch: 'main', credentialsId: 'chris', url: 'git@github.com:BanCoppelUnity/pipeline-config.git'
-                sh "cd $WORKSPACE"
+                sh 'git clone https://$git_cred_USR:$git_cred_PSW@github.com/BanCoppelUnity/pipeline-config.git'
                 sh 'cp dockerfiles/archetypes/springboot/Dockerfile ../'
                 sh 'cd ../'
                 sh 'rm -rf pipeline-config'
