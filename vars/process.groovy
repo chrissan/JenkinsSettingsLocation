@@ -1,6 +1,6 @@
 def call(Map m){
     switch(m.environment) {
-        case dev:
+        case "dev":
             springboot.call()
         break
     }
