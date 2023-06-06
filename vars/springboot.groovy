@@ -37,7 +37,8 @@ def call(){
             steps{
                 git branch: 'main', credentialsId: 'chris', url: 'git@github.com:BanCoppelUnity/pipeline-config.git'
                 sh 'find .'
-                sh 'cp pipeline-config/dockerfiles/archetypes/springboot/Dockerfile .'
+                sh 'cp dockerfiles/archetypes/springboot/Dockerfile .'
+                sh 'rm -rf dockerfiles'
             }
         }
         stage('Dockerize') {
