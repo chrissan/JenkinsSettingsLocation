@@ -25,7 +25,7 @@ def call(){
                 sh 'docker rmi tempservices.eastus.cloudapp.azure.com/archetype/$tag'
             }
         }
-        }
     }
 }
+
 
