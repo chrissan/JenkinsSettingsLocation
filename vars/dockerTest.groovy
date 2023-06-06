@@ -6,12 +6,12 @@ def call(){
         tag = sh(returnStdout: true, script: "echo $pom | awk -F':' '{print \$2 \":\" $env.BUILD_NUMBER}'")
     }
     stages{
-        stage('Download Dockerfile')
+        stage('Download Dockerfile'){
             steps{
                 git branch: 'main', credentialsId: 'chris', url: 'git@github.com:BanCoppelUnity/pipeline-config.git'
                 sh 'cp pipeline-config/dockerfiles/archetypes/springboot/Dockerfile .'
             }
-
+        }
         stage('Dockerize') {
             steps {
                 sh 'printenv'
