@@ -36,10 +36,12 @@ def call(){
     //     }
         stage('Download Dockerfile'){
             steps{
-                sh 'printenv'
+                
                 git branch: 'main', credentialsId: 'chris', url: 'git@github.com:BanCoppelUnity/pipeline-config.git'
+                sh 'pwd'
                 sh 'cp dockerfiles/archetypes/springboot/Dockerfile ../'
                 sh 'cd ../'
+                sh 'pwd'
                 sh 'rm -rf pipeline-config'
                 sh 'ls -la'
             }
