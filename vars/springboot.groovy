@@ -38,7 +38,7 @@ def call(){
             steps{
                 sh 'pwd'
                 git branch: 'main', credentialsId: 'chris', url: 'git@github.com:BanCoppelUnity/pipeline-config.git'
-                cd "$WORKSPACE"
+                sh "cd $WORKSPACE"
                 sh 'cp dockerfiles/archetypes/springboot/Dockerfile ../'
                 sh 'cd ../'
                 sh 'rm -rf pipeline-config'
