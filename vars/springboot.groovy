@@ -41,8 +41,7 @@ def call(){
             steps{
                 sh 'pwd'
                 sh 'git clone https://$git_cred_USR:$git_cred_PSW@github.com/BanCoppelUnity/pipeline-config.git'
-                sh 'cp dockerfiles/archetypes/springboot/Dockerfile ../'
-                sh 'cd ../'
+                sh 'cp pipeline-config/dockerfiles/archetypes/springboot/Dockerfile ../'
                 sh 'rm -rf pipeline-config'
                 sh 'ls -la'
             }
