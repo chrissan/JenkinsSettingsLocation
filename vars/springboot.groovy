@@ -39,7 +39,7 @@ def call(){
                 git_cred = credentials('githubpassglobal')
             }
             steps{
-                sh 'pwd'
+                sh 'rm -rf pipeline-config'
                 sh 'git clone https://$git_cred_USR:$git_cred_PSW@github.com/BanCoppelUnity/pipeline-config.git'
                 sh 'cp pipeline-config/dockerfiles/archetypes/springboot/Dockerfile ../'
                 sh 'rm -rf pipeline-config'
